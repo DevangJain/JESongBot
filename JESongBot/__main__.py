@@ -13,7 +13,7 @@ Heya [{}](tg://user?id={}), I'm Song Downloader Bot 🎵
 
 Do /help for know my commands
 
-A bot by @Infinity_BOTs
+A bot by @JeBots
 """
 
 help_text = """
