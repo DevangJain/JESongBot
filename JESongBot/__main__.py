@@ -27,6 +27,10 @@ My commands👇
 A bot by @JeBots
 """
 
+credits = """Developer 💻
+ • @DeVAJe """
+
+
 @app.on_message(filters.command("start"))
 async def start(client, message):
     chat_id = message.chat.id
