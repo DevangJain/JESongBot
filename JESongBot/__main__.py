@@ -24,7 +24,7 @@ My commands👇
 - /deezer <song name>: download songs via Deezer
 - Send youtube url to my pm for download it on audio format
 
-A bot by @Infinity_BOTs
+A bot by @JeBots
 """
 
 @app.on_message(filters.command("start"))
@@ -34,24 +34,48 @@ async def start(client, message):
     name = message.from_user["first_name"]
     if message.chat.type == "private":
         btn = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="Source", url="https://github.com/ImJanindu/JESongBot"
-                    ),
-                    InlineKeyboardButton(
-                        text="Dev", url="https://t.me/ImJanindu"
-                    )
-                ]
-            ]
-        )
+    [
+        [
+            InlineKeyboardButton(
+                "➕ Add me to a Group ➕",
+                url="http://t.me/songjeBot?startgroup=tr",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                "Report Bugs 💬", url="https://t.me/DeVAJe"),
+        ],
+        [
+            InlineKeyboardButton("Help 🗣️", callback_data="help"),
+            InlineKeyboardButton("Developer 💻", callback_data=b"Credits"),
+        ],
+        [
+            InlineKeyboardButton("📣 Channel", url="https://t.me/JeBots"),
+            InlineKeyboardButton("Group 👥", url="https://t.me/JeSupport"),
+        ],
+    ]
+)
+
+
     else:
         btn = None
     await message.reply(pm_start_text.format(name, user_id), reply_markup=btn)
 
 @app.on_message(filters.command("help"))
 async def start(client, message):
-    await message.reply(help_text)
+    chat_id = message.chat.id
+    user_id = message.from_user["id"]
+    name = message.from_user["first_name"]
+    if message.chat.type == "private":
+        btn = InlineKeyboardMarkup(
+[
+        [InlineKeyboardButton("🔙 Back", callback_data="back")],
+    ]
+)
+
+else:
+        btn = None
+    await message.reply(help_text.format(name, user_id), reply_markup=btn)
 
 app.start()
 LOGGER.info("JESongBot is online.")
